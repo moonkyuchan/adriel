@@ -6,13 +6,12 @@ import Time from "./Time";
 import Tootip from "../Tooltip";
 
 function Clock() {
-  console.log("Rendering");
   return (
     <Tootip>
       <StyledClock>
-        <StyledDot />
         <Time />
         <Hand />
+        <StyledDot />
       </StyledClock>
     </Tootip>
   );
@@ -29,12 +28,12 @@ const StyledClock = styled.div(() => {
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    overflow: "hidden",
   };
 });
 
 const StyledDot = styled.div(() => {
   return {
-    zIndex: 1,
     width: "25px",
     height: "25px",
     borderRadius: "50%",

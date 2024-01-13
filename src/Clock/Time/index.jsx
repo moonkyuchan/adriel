@@ -22,11 +22,11 @@ const StyledNumberWrap = styled.div(() => {
     width: "95%",
     height: "95%",
     borderRadius: "50%",
+    overflow: "hidden",
   };
 });
 const StyledTime = styled.span(({ deg }) => {
   return {
-    zIndex: 2,
     position: "absolute",
     fontSize: "20px",
     fontWeight: "bold",

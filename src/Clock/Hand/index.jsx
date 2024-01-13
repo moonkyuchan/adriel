@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -18,7 +18,7 @@ export default function Hand() {
     return () => clearInterval(intervalId);
   }, [dispatch]);
 
-  const handStyles = (type) => {
+  const handStyles = useCallback((type) => {
     switch (type) {
       case "hour":
         return { width: "15px", height: "120px" };
@@ -29,7 +29,7 @@ export default function Hand() {
       default:
         return null;
     }
-  };
+  }, []);
 
   return (
     <>

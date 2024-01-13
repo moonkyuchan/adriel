@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
+import TextBox from "./TextBox";
 
 export default function Tootip({ children }) {
-  console.log("Tooltip Rendering");
   const [showTooltip, setShowTooltip] = useState(false);
-  console.log(showTooltip);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseEnter = () => {
     setShowTooltip(true);
@@ -14,16 +14,19 @@ export default function Tootip({ children }) {
     setShowTooltip(false);
   };
 
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    setPosition({ x: clientX, y: clientY });
+  };
+
   return (
-    <StyeldBack onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+    >
       {children}
-      {showTooltip && (
-        <div style={{ position: "absolute" }}>하하하핳하하하하핳하하하</div>
-      )}
-    </StyeldBack>
+      {showTooltip && <TextBox position={position} />}
+    </div>
   );
 }
-
-const StyeldBack = styled.div(() => {
-  return {};
-});
