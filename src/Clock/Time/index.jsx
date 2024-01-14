@@ -25,6 +25,7 @@ const StyledNumberWrap = styled.div(() => {
     overflow: "hidden",
   };
 });
+
 const StyledTime = styled.span(({ deg }) => {
   return {
     position: "absolute",
